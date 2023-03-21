@@ -46,11 +46,11 @@ const Blog = ({navigation}) => {
           <View key={key}>
           <Text style={styles.textColor}>{post.title}</Text>
           <HTML source={{html: post.sourceUrl}}/>            
-          <View style={styles.buttonView}>
+          <View>
             <TouchableOpacity style={styles.buttonView} onPress={() =>{
               navigation.navigate('Post')
             }}>
-              <Text>Learn More</Text>
+              <Text style={styles.textColorBtn}>Learn More</Text>
             </TouchableOpacity>
           </View>
          </View>
@@ -68,8 +68,8 @@ const Blog = ({navigation}) => {
   export default function Root() {
     return (
       <Stack.Navigator>
-        <Stack.Screen name="Blog" component={Blog} />
-        <Stack.Screen name="Post" component={Post} />
+        <Stack.Screen name="Blog" component={Blog} options={{headerShown: false}}/>
+        <Stack.Screen name="Post" component={Post} options={{headerShown: false}}/>
       </Stack.Navigator>
     );
   }
@@ -95,6 +95,14 @@ const stylesHtml = StyleSheet.create({
       textTransform : 'uppercase',
       fontWeight : 'bold', 
       padding:10,
+    }, 
+    textColorBtn:{
+      color:"000",
+      fontSize: 14,
+      textTransform : 'uppercase',
+      fontWeight : 'bold', 
+      padding:10,
+      textAlign:'center',
     },
     buttonView:{
           marginLeft:50,
@@ -104,5 +112,6 @@ const stylesHtml = StyleSheet.create({
           borderColor:'#F31801',
           overflow:"hidden",
           marginBottom:10,
+          textAlign:'center'
      }
     }); 
