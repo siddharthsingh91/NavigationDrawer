@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, useWindowDimensions, TouchableHighlight, TouchableOpacity, Colors, StyleSheet, Text, Image} from 'react-native';
+import { Button, Linking, View, useWindowDimensions, TouchableHighlight, TouchableOpacity, Colors, StyleSheet, Text, Image} from 'react-native';
 import {   createDrawerNavigator,
   DrawerContentScrollView,
   DrawerItemList, } from '@react-navigation/drawer';
@@ -85,12 +85,12 @@ export default function App() {
       //Below setting is for adding header and footer 
       //for drawer
       drawerContent={props => <CustomDrawer {...props} /> }  
-      
        screenOptions={({ route }) => ({
+        headerTintColor : "#fff",
         drawerStyle : drawerTheme.colors,
         drawerType: isLargeScreen ? 'permanent' : 'back',
         drawerActiveTintColor : "#fff",
-        drawerActiveBackgroundColor : "#1ca7ff",
+        drawerActiveBackgroundColor : "#263365",
         drawerInactiveTintColor : "#464a4a",
         drawerInactiveBackgroundColor : "#ddd",
         //drawerStyle: isLargeScreen ? null : { width: '80%' },
@@ -105,7 +105,7 @@ export default function App() {
     drawerType: "slide",
     headerStyle: {
       height: 80, // Specify the height of your custom header
-      backgroundColor: "rgba(0, 0, 0, 0.1)",
+      backgroundColor: "#1991DC",
       elevation: 0,
       shadowOpacity: 0,
     },
@@ -128,7 +128,7 @@ export default function App() {
     // THAT'S ALL YOU NEED IN DN6 :)
 
     headerRight: () => (
-    <TouchableHighlight onPress={()=>{}} style={styles.callOnTop}>
+    <TouchableHighlight onPress={()=>{Linking.openURL('tel:1-800-831-0282');}} style={styles.callOnTop}>
      <View style={styles.callOnTopText}>
       <Ionicons name="call-sharp"  size={20} color="#000" />
      </View>
@@ -183,6 +183,7 @@ export default function App() {
 const styles = StyleSheet.create({
   headerStyle:{
     textAlign:"center", 
+    backgroundColor: '#1991DC'
     },
     headerStyleTwo:{
     flex:1 ,
@@ -205,10 +206,10 @@ const styles = StyleSheet.create({
       marginRight: 16,
       marginTop: 0,
       padding: 6,
-      backgroundColor: '#ccc',
+      backgroundColor: '#fff',
       borderRadius: 8,
       borderWidth: 1,
-      borderColor: '#ccc',
+      borderColor: '#ffff',
      },
      callOnTopText: {
       color: '#fff',
@@ -219,5 +220,5 @@ const styles = StyleSheet.create({
 
   const drawerTheme = StyleSheet.create({
     colors: {
-      backgroundColor: '#263365', borderRadius:10,  width: '80%'
+      backgroundColor: '#1991DC', borderRadius:10,  width: '80%',
     } }); 
